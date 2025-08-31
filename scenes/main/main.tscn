@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://ype15h7cnc8s"]
+
+[ext_resource type="Texture2D" uid="uid://cgyq3k5j8hf6b" path="res://assets/sprites/campo-roxo.png" id="1_hyk8p"]
+[ext_resource type="Texture2D" uid="uid://ddlb5p5sme0vh" path="res://assets/sprites/jogador.png" id="2_iuonh"]
+[ext_resource type="PackedScene" uid="uid://djy3h6n51hsm8" path="res://scenes/jogador/jogador.tscn" id="3_k2fmo"]
+
+[node name="Main" type="Node2D"]
+
+[node name="Campo" type="Sprite2D" parent="."]
+position = Vector2(640, 360)
+texture = ExtResource("1_hyk8p")
+
+[node name="Linha" type="Sprite2D" parent="."]
+position = Vector2(640, 360)
+scale = Vector2(0.5, 5.6)
+texture = ExtResource("2_iuonh")
+
+[node name="Jogador1" parent="." instance=ExtResource("3_k2fmo")]
+position = Vector2(64, 360)
+
+[node name="Jogador2" parent="." instance=ExtResource("3_k2fmo")]
+position = Vector2(1216, 360)
+jogador1 = false
