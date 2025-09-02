@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://ype15h7cnc8s"]
+[gd_scene load_steps=5 format=3 uid="uid://ype15h7cnc8s"]
 
 [ext_resource type="Texture2D" uid="uid://cgyq3k5j8hf6b" path="res://assets/sprites/campo-roxo.png" id="1_hyk8p"]
 [ext_resource type="Texture2D" uid="uid://ddlb5p5sme0vh" path="res://assets/sprites/jogador.png" id="2_iuonh"]
 [ext_resource type="PackedScene" uid="uid://djy3h6n51hsm8" path="res://scenes/jogador/jogador.tscn" id="3_k2fmo"]
+[ext_resource type="PackedScene" uid="uid://ff7ik0ouxmmj" path="res://scenes/bola/bola.tscn" id="4_l3cfh"]
 
 [node name="Main" type="Node2D"]
 
@@ -21,3 +22,6 @@ position = Vector2(64, 360)
 [node name="Jogador2" parent="." instance=ExtResource("3_k2fmo")]
 position = Vector2(1216, 360)
 jogador1 = false
+
+[node name="Bola" parent="." instance=ExtResource("4_l3cfh")]
+position = Vector2(640, 360)
