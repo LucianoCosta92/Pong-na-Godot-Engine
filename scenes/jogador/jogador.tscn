@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ug4wg"]
 size = Vector2(20, 130)
 
-[node name="Jogador" type="StaticBody2D"]
+[node name="Jogador" type="StaticBody2D" groups=["jogadores"]]
 position = Vector2(1, 1)
 script = ExtResource("1_ug4wg")
 jogador1 = true

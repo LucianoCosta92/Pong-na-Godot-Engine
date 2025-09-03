@@ -1,15 +1,20 @@
 extends Area2D
 
-var velocidade_da_bola : int = 500
-var posicao_inicial : Vector2 = Vector2(640,360) # x / y -> coordenadas
+var velocidade_da_bola : int = 300
+var posicao_inicial : Vector2 = Vector2(640,360) # x / y -> coordenadas (horizontal, vertical)
 var direcao_inicial : Vector2 = Vector2(0,0) 
 var nova_direcao : Vector2 = Vector2(0,0)
+
+var y_minimo : float = 0 # y = vertical
+var y_maximo : float = 720
+
 
 func _ready() -> void:
 	resetar_bola()
 
 func _process(delta: float) -> void:
 	movimentar_bola(delta)
+	colidir_com_as_paredes()
 
 # centraliza a bola e a manda para uma direção aleatória	
 func resetar_bola() -> void:
@@ -26,7 +31,14 @@ func escolher_direcao_inicial() -> void:
 
 func movimentar_bola(delta : float) -> void:
 	position += nova_direcao * velocidade_da_bola * delta
-	
-	
-	
-	
+
+func colidir_com_as_paredes() -> void:
+	if position.y >= y_maximo or position.y <= y_minimo:
+		nova_direcao.y *= -1 # inverte direção da bola ao tentar sair da tela
+	# +1 * +1 = +1
+	# +1 * -1 = -1
+	# -1 * -1 = +1
+
+func _on_body_entered(body: Node2D) -> void:
+	if body.is_in_group("jogadores"):
+		nova_direcao.x *= -1 # inverte direção da bola ao colidir com jogador
