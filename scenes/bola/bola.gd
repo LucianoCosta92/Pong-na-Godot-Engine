@@ -8,6 +8,7 @@ var nova_direcao : Vector2 = Vector2(0,0)
 var y_minimo : float = 0 # y = vertical
 var y_maximo : float = 720
 
+@onready var timer : Timer = $Timer
 
 func _ready() -> void:
 	resetar_bola()
@@ -15,8 +16,11 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	movimentar_bola(delta)
 	colidir_com_as_paredes()
+	
+func rodar_timer() -> void:
+	timer.start()
 
-# centraliza a bola e a manda para uma direção aleatória	
+# centraliza a bola e a manda para uma direção aleatória
 func resetar_bola() -> void:
 	position = posicao_inicial
 	escolher_direcao_inicial()
@@ -42,3 +46,9 @@ func colidir_com_as_paredes() -> void:
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("jogadores"):
 		nova_direcao.x *= -1 # inverte direção da bola ao colidir com jogador
+
+
+func _on_timer_timeout() -> void:
+	resetar_bola()
+	
+	
