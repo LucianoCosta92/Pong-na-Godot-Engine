@@ -1,9 +1,12 @@
 extends Node2D
 
 @onready var bola : Area2D = $"../Bola"
+
 var pontuacao_jogador1 : int = 0
 var pontuacao_jogador2 : int = 0
 
+@onready var texto_pontuacao_jogador1 : Label = $"../UI/PainelDePontuacao/TextoPontuacaoJogador1"
+@onready var texto_pontuacao_jogador2 : Label = $"../UI/PainelDePontuacao/TextoPontuacaoJogador2"
 
 func _ready() -> void:
 	pass 
@@ -15,10 +18,13 @@ func _process(delta: float) -> void:
 
 func _on_gol_1_area_entered(area: Area2D) -> void:
 	pontuacao_jogador2 += 1
+	texto_pontuacao_jogador2.text = str(pontuacao_jogador2)
+	
 	bola.rodar_timer()
 
 
 func _on_gol_2_area_entered(area: Area2D) -> void:
 	pontuacao_jogador1 += 1
+	texto_pontuacao_jogador1.text = str(pontuacao_jogador1)
 	bola.rodar_timer()
 	

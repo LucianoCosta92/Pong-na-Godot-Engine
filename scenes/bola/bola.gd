@@ -1,6 +1,6 @@
 extends Area2D
 
-var velocidade_da_bola : int = 300
+var velocidade_da_bola : int = 400
 var posicao_inicial : Vector2 = Vector2(640,360) # x / y -> coordenadas (horizontal, vertical)
 var direcao_inicial : Vector2 = Vector2(0,0) 
 var nova_direcao : Vector2 = Vector2(0,0)
