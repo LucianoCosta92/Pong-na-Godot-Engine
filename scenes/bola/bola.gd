@@ -5,10 +5,15 @@ var posicao_inicial : Vector2 = Vector2(640,360) # x / y -> coordenadas (horizon
 var direcao_inicial : Vector2 = Vector2(0,0) 
 var nova_direcao : Vector2 = Vector2(0,0)
 
+var x_minimo : float = 0 # x = horizontal
+var x_maximo : float = 1280
 var y_minimo : float = 0 # y = vertical
 var y_maximo : float = 720
 
 @onready var timer : Timer = $Timer
+
+@onready var som_impacto_barreira : AudioStreamPlayer = $SomImpactoBarreira
+@onready var som_impacto_jogador : AudioStreamPlayer = $SomImpactoJogador
 
 func _ready() -> void:
 	resetar_bola()
@@ -39,6 +44,8 @@ func movimentar_bola(delta : float) -> void:
 func colidir_com_as_paredes() -> void:
 	if position.y >= y_maximo or position.y <= y_minimo:
 		nova_direcao.y *= -1 # inverte direção da bola ao tentar sair da tela
+		if position.x >= x_minimo and position.x <= x_maximo:
+			som_impacto_barreira.play()	
 	# +1 * +1 = +1
 	# +1 * -1 = -1
 	# -1 * -1 = +1
@@ -46,6 +53,7 @@ func colidir_com_as_paredes() -> void:
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("jogadores"):
 		nova_direcao.x *= -1 # inverte direção da bola ao colidir com jogador
+		som_impacto_jogador.play()
 
 
 func _on_timer_timeout() -> void:
