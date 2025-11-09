@@ -26,9 +26,10 @@ texture = ExtResource("2_iuonh")
 [node name="Jogador1" parent="." instance=ExtResource("3_k2fmo")]
 position = Vector2(64, 360)
 
-[node name="Jogador2" parent="." instance=ExtResource("3_k2fmo")]
+[node name="Jogador2" parent="." node_paths=PackedStringArray("bola") instance=ExtResource("3_k2fmo")]
 position = Vector2(1216, 360)
 jogador1 = false
+bola = NodePath("../Bola")
 
 [node name="Bola" parent="." instance=ExtResource("4_l3cfh")]
 position = Vector2(640, 360)

@@ -11,12 +11,16 @@ var pontuacao_jogador2 : int = 0
 @onready var som_impacto_gol : AudioStreamPlayer = $SomImpactoGol
 
 func _ready() -> void:
-	pass 
-
-
-func _process(delta: float) -> void:
 	pass
 
+func _process(delta: float) -> void:
+	receber_inputs()
+
+func receber_inputs() -> void:
+	if Input.is_action_just_pressed("reiniciar"):
+		get_tree().reload_current_scene()
+	if Input.is_action_just_pressed("sair"):
+		get_tree().quit()
 
 func _on_gol_1_area_entered(area: Area2D) -> void:
 	som_impacto_gol.play()
