@@ -8,10 +8,16 @@ var tempo_reacao := 0.2
 var tempo_passado := 0.0
 var alvo_y := 0.0
 
+var dificuldade_aplicada := false
+
 func _ready() -> void:
+	print("Jogador pronto! Jogador1 = ", jogador1)
 	pass
 
 func _process(delta: float) -> void:
+	if not jogador1 and not dificuldade_aplicada:
+		seleciona_dificuldade()
+		dificuldade_aplicada = true
 	if jogador1:
 		movimentar_jogador1(delta)
 	else:	
@@ -43,4 +49,17 @@ func movimentar_jogador2_aleatorio(delta : float) ->void:
 		
 func limitar_movimento_do_jogador() -> void:
 	position.y = clamp(position.y, 64, 654)
-				
+
+func seleciona_dificuldade() -> void:
+	print("Selecionado dificuldade: ", Global.dificuldade)
+	match Global.dificuldade:
+		"facil":
+			velocidade_do_jogador = 350
+			tempo_reacao = 0.5
+		"medio":
+			velocidade_do_jogador = 500
+			tempo_reacao = 0.25
+		"dificil":
+			velocidade_do_jogador = 650
+			tempo_reacao = 0.1	
+	print("Velocidade: ", velocidade_do_jogador, " | Reação: ", tempo_reacao)

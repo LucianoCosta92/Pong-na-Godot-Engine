@@ -1,0 +1,154 @@
+[gd_scene load_steps=9 format=3 uid="uid://buoc3nlea0s0b"]
+
+[ext_resource type="Script" uid="uid://c8kywp5v6tud8" path="res://scenes/main/menu_level/menu.gd" id="1_echfi"]
+[ext_resource type="Texture2D" uid="uid://cgyq3k5j8hf6b" path="res://assets/sprites/campo-roxo.png" id="1_nvmsr"]
+[ext_resource type="FontFile" uid="uid://be25m47wmiie" path="res://assets/fonte/GrapeSoda.ttf" id="2_feaxv"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_feaxv"]
+texture = ExtResource("1_nvmsr")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8bgi5"]
+bg_color = Color(0.50140685, 0.50140643, 0.5014065, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 1
+shadow_offset = Vector2(0, 3.41)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_feaxv"]
+bg_color = Color(0.82606, 0.82606006, 0.82606, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 1
+shadow_offset = Vector2(0, 3.41)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_echfi"]
+bg_color = Color(0.63375676, 0.6337568, 0.63375676, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 1
+shadow_offset = Vector2(0, 3.41)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_feaxv"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_echfi")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -640.0
+offset_top = -360.0
+offset_right = 640.0
+offset_bottom = 360.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_feaxv")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -198.0
+offset_top = -72.0
+offset_right = 198.0
+offset_bottom = 72.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 9
+
+[node name="Facil" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_8bgi5")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_feaxv")
+theme_override_styles/hover = SubResource("StyleBoxFlat_echfi")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_feaxv")
+text = "Easy"
+
+[node name="Medio" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_8bgi5")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_feaxv")
+theme_override_styles/hover = SubResource("StyleBoxFlat_echfi")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_feaxv")
+text = "Medium"
+
+[node name="Dificil" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_8bgi5")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_feaxv")
+theme_override_styles/hover = SubResource("StyleBoxFlat_echfi")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_feaxv")
+text = "Hard"
+
+[node name="Voltar" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_8bgi5")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_feaxv")
+theme_override_styles/hover = SubResource("StyleBoxFlat_echfi")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_feaxv")
+text = "Back"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -240.0
+offset_top = -208.0
+offset_right = 274.0
+offset_bottom = -136.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_feaxv")
+theme_override_font_sizes/font_size = 70
+text = "Choose difficult level"
+
+[connection signal="pressed" from="VBoxContainer/Facil" to="." method="_on_easy_pressed"]
+[connection signal="pressed" from="VBoxContainer/Medio" to="." method="_on_medium_pressed"]
+[connection signal="pressed" from="VBoxContainer/Dificil" to="." method="_on_hard_pressed"]
+[connection signal="pressed" from="VBoxContainer/Voltar" to="." method="_on_back_pressed"]

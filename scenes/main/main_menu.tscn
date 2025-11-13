@@ -68,7 +68,7 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_constants/separation = 9
 
-[node name="Button" type="Button" parent="VBoxContainer"]
+[node name="Start" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -82,7 +82,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_5vafy")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_sd5it")
 text = "Start "
 
-[node name="Button2" type="Button" parent="VBoxContainer"]
+[node name="Exit" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -96,5 +96,5 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_5vafy")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_sd5it")
 text = "Exit"
 
-[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="VBoxContainer/Button2" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="VBoxContainer/Exit" to="." method="_on_exit_pressed"]
