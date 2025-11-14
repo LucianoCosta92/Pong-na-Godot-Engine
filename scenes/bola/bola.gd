@@ -39,7 +39,7 @@ func escolher_direcao_inicial() -> void:
 	nova_direcao = direcao_inicial
 
 func movimentar_bola(delta : float) -> void:
-	position += nova_direcao * velocidade_da_bola * delta
+	position += nova_direcao * Global.velocidade_da_bola * delta
 
 func colidir_com_as_paredes() -> void:
 	if position.y >= y_maximo or position.y <= y_minimo:

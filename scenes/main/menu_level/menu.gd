@@ -13,16 +13,19 @@ func _process(delta: float) -> void:
 
 func _on_easy_pressed():
 	Global.dificuldade = "facil"
+	Global.velocidade_da_bola = 350
 	load_game()
 
 
 func _on_medium_pressed():
 	Global.dificuldade = "medio"
+	Global.velocidade_da_bola = 500
 	load_game()
 
 
 func _on_hard_pressed():
 	Global.dificuldade = "dificil"
+	Global.velocidade_da_bola = 800
 	load_game()
 	
 

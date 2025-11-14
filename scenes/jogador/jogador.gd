@@ -2,7 +2,9 @@ extends StaticBody2D
 
 @export var jogador1 : bool
 @export var bola : Node2D
-var velocidade_do_jogador : int = 500
+var velocidade_humano : int = 600
+var velocidade_do_jogador : int = 600
+var margem_de_erro : float = 0.0
 
 var tempo_reacao := 0.2
 var tempo_passado := 0.0
@@ -12,7 +14,7 @@ var dificuldade_aplicada := false
 
 func _ready() -> void:
 	print("Jogador pronto! Jogador1 = ", jogador1)
-	pass
+	
 
 func _process(delta: float) -> void:
 	if not jogador1 and not dificuldade_aplicada:
@@ -28,9 +30,9 @@ func _process(delta: float) -> void:
 func movimentar_jogador1(delta : float) -> void:
 	if jogador1:
 		if Input.is_action_pressed("mv-cima-1"):
-			position.y -= velocidade_do_jogador * delta
+			position.y -= velocidade_humano * delta
 		elif Input.is_action_pressed("mv-baixo-1"):
-			position.y += velocidade_do_jogador * delta
+			position.y += velocidade_humano * delta
 
 func movimentar_jogador2_aleatorio(delta : float) ->void:
 	if bola == null:
@@ -39,7 +41,9 @@ func movimentar_jogador2_aleatorio(delta : float) ->void:
 	tempo_passado += delta
 	
 	if tempo_passado >= tempo_reacao:
-		alvo_y = bola.position.y
+		var desvio = randf_range(-margem_de_erro, margem_de_erro)
+		
+		alvo_y = bola.position.y + desvio
 		tempo_passado = 0.0
 	
 	if position.y < alvo_y:
@@ -55,11 +59,14 @@ func seleciona_dificuldade() -> void:
 	match Global.dificuldade:
 		"facil":
 			velocidade_do_jogador = 350
-			tempo_reacao = 0.5
+			tempo_reacao = 0.7
+			margem_de_erro = 100.0
 		"medio":
 			velocidade_do_jogador = 500
-			tempo_reacao = 0.25
+			tempo_reacao = 0.10
+			margem_de_erro = 40.0
 		"dificil":
-			velocidade_do_jogador = 650
-			tempo_reacao = 0.1	
+			velocidade_do_jogador = 800
+			tempo_reacao = 0.01
+			margem_de_erro = 5.0
 	print("Velocidade: ", velocidade_do_jogador, " | Reação: ", tempo_reacao)
